@@ -1,3 +1,3 @@
 from Recipe import *
 
-Selector(5)
+Selector(2)

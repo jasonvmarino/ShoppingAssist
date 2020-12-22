@@ -1,5 +1,6 @@
 keywords:
 beef
+meat
 
 ingredients:
 *One cow*
