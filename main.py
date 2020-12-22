@@ -1,3 +1,4 @@
 from Recipe import *
 
-Selector(2)
+test = Selector(2)
+print(test.recipes)

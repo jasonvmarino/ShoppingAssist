@@ -7,7 +7,6 @@ class Selector:
         self.recipes = []
         self.types = []
         self.selection()
-        print(self.recipes)
 
     def selection(self):  # Allows you to input how many you would like to select. Calls function to select.
         select_num = int(input('How many would you like to select?\n>'))
