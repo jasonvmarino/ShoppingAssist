@@ -6,5 +6,6 @@ shopping list:
 1 cow
 1 cow liver
 1 cow other
+1 milk
 
 instructions:

@@ -6,3 +6,5 @@ from Shopping import *
 temp_test = ['beef.txt', 'half cow.txt', 'beef - Copy (2).txt']
 shopList = GetList(temp_test)
 ShoppingList(temp_test, shopList.shopping_list)
+
+# TODO: Add a main menu to change settings, select create list, etc.

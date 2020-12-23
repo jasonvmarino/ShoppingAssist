@@ -1,0 +1,6 @@
+*Dairy
+Milk
+Eggs
+*Meat
+Cow
+Chicken
