@@ -1,5 +1,6 @@
-from os import getcwd,chdir,listdir
+from os import getcwd, chdir, listdir
 from collections import defaultdict
+
 
 class GetList:
     def __init__(self, recipes):
@@ -20,9 +21,9 @@ class GetList:
         for item in self.recipes:
             with open(item) as file:
                 text = file.read().splitlines()
-                begin = text.index('shopping list:',0)
-                end = text.index('',begin)
-                for items in text[begin+1:end]:
+                begin = text.index('shopping list:', 0)
+                end = text.index('', begin)
+                for items in text[begin + 1:end]:
                     self.ingredient_list.append(items)
         chdir(def_dir)
 
@@ -30,9 +31,8 @@ class GetList:
         for item in self.ingredient_list:
             split = item.index(' ')
             value = float(item[:split])
-            key = item[split+1:]
+            key = item[split + 1:]
             self.shopping_list_dd[key] += value
-
 
 
 class ShoppingList:
@@ -73,7 +73,7 @@ class ShoppingList:
                 func = False
 
     def remove_duplicates(self):
-        for key,values in self.ingredients.items():
+        for key, values in self.ingredients.items():
             if key not in self.staples:
                 self.shopping_list[key.lower()] = values
         for item in self.staples:
@@ -98,5 +98,6 @@ class ShoppingList:
             for item in raw_text:
                 self.categories.append(item.lower())
 
-    # TODO: create embeded dictionaries with categories, items, and amounts
-    # TODO: write items from dictionaries to excel file
+    # TODO: create embedded dictionaries with categories, items, and amounts
+    # TODO: If item is not in categories, allow item to be added to one category
+    # TODO: Write items from dictionaries to excel file
