@@ -31,7 +31,9 @@ class Selector:
             chdir(path)  # Changing directory to look at recipe list
             recipe_list = listdir()
             if keyword == 'all':
-                lor = recipe_list[:]
+                for item in recipe_list:
+                    if item not in self.recipes:
+                        lor.append(item)
             else:
                 for item in recipe_list:
                     with open(item) as file:
@@ -40,7 +42,7 @@ class Selector:
                             if lines.lower() == keyword.lower():
                                 lor.append(item)
                 for item in lor:
-                    if item in self.recipes:
+                    if item in self.recipes[:]:
                         lor.remove(item)
         if rand == 0:
             value = 1

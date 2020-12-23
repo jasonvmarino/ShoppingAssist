@@ -1,4 +1,5 @@
 from Recipe import *
+from Shopping import *
 
-test = Selector(2)
-print(test.recipes)
+test = Selector(5)
+ShoppingList(test.recipes)
