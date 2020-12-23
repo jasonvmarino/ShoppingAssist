@@ -9,23 +9,22 @@ class Selector:
         self.execute()
 
     def execute(self):
-        self.selection()
-        self.final_check()
+        self.selection()  # Chooses how many days to select the specific recipe
+        self.final_check()  # Allows you to delete and re-pick a recipe in the recipe list
 
-    def selection(self):  # Allows you to input how many you would like to select. Calls function to select.
+    def selection(self):
         select_num = int(input('How many would you like to select?\n> '))
         while select_num > self.days:
             select_num = int(input('Exceeds number of days. How many would you like to select?\n> '))
         self.days -= select_num
         while select_num > 0:
-            self.get_recipe()
+            self.get_recipe()  # Used to check recipes for keywords, return possible recipes
             select_num -= 1
-        print('Done with selected')
         while self.days > 0:
-            self.get_recipe(rand=1)
+            self.get_recipe(rand=1)  # Used to check recipes for keywords, picks one at random based on keyword
             self.days -= 1
 
-    def get_recipe(self, rand=0):  # Used to check recipes for keywords, return recipe
+    def get_recipe(self, rand=0):
         def_dir = getcwd()
         lor = []
         path = getcwd() + chr(92) + 'recipes' + chr(92)
