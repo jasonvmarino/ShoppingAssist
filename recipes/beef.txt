@@ -2,5 +2,9 @@ keywords:
 beef
 meat
 
-ingredients:
-*One cow*
+shopping list:
+1 cow
+1 cow liver
+1 cow other
+
+instructions:

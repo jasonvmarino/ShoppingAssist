@@ -2,5 +2,7 @@ keywords:
 chicken
 meat
 
-ingredients:
-*One chicken*
+shopping list:
+1 chicken
+
+instructions:

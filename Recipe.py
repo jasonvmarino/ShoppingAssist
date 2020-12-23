@@ -6,6 +6,9 @@ class Selector:
         self.days = int(days)
         self.recipes = []
         self.types = []
+        self.execute()
+
+    def execute(self):
         self.selection()
         self.final_check()
 
