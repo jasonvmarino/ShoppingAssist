@@ -1,5 +1,6 @@
 from os import getcwd, chdir, listdir
 from collections import defaultdict
+from openpyxl import *
 
 
 class GetList:
@@ -98,16 +99,16 @@ class ShoppingList:
 
 class ExcelWriter:
     def __init__(self, shopping_list):
-        self.shopping_list = shopping_list
-        self.categories = []
-        self.both = []
-        self.combined = []
-        self.cat_list = []
+        self.shopping_list = shopping_list  # Only input data, should come from ShoppingList class.
+        self.categories = []  # Loads categories from specified file in settings.txt
+        self.both = []  # List of items that were in both categories
+        self.combined = []  # List of items that will need to be written
+        self.cat_list = []  # Just holds categories
         self.execute()
 
     def execute(self):
         self.load_categories()  # Looks at settings.txt and loads correct .txt from categories. Adds to self.categories
-        self.items_into_categories()  # Put items into the correct categories
+        self.items_into_categories()  # Put items into the correct categories, output is self.combinedf
 
     def load_categories(self):
         def_dir = getcwd()
@@ -157,6 +158,28 @@ class ExcelWriter:
         for item in self.categories:  # Creates combined listed that is able to be used to write list to xlsx file
             if item in self.both:
                 self.combined.append(item)
+'''
+    def write_to_excel(self):
+        def_dir = getcwd()
+        try:
+            wb = load_workbook('shoppinglist.xlsx')
+        except:
+            wb = Workbook()
+        ws = wb.active
+        for item in self.combined:
+            write_row = 1
+            write_column = 1
+            if item[0] == '*':
+                if write_row == 1:
+                    ws.append(item[1:])
+                else:
+                    ws.append('')
+                    ws.append(item[1:])
+            elif:
 
-    # TODO: Write items from dictionaries to excel file using self.both
+        wb.save('shoppinglist.xlsx')
+'''
+
+
+    # TODO: Write items from dictionaries to excel file using self.combined
     # TODO: Rewrite text file to add new items/categories to the file
